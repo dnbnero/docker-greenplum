@@ -5,15 +5,14 @@ Difference from datagrip version:
 * Support Apple M1 processor
 * Correct stop
 * Printing greenplum logs to container logs
-
-GPORCA optimizer temporarily disabled (some compilation problems)
+* Also added config file for S3 storage
 
 ## Build images
 ```
-$ docker buildx build --platform linux/arm64/v8 -f 6/DockerFile -t andruche/greenplum:6.25.3-slim-arm64 .
-$ docker push andruche/greenplum:6.25.3-slim-arm64
-$ docker buildx build --platform linux/amd64 -f 6/DockerFile -t andruche/greenplum:6.25.3-slim-amd64 .
-$ docker push andruche/greenplum:6.25.3-slim-amd64
+$ docker buildx build --platform linux/arm64/v8 -f 6/DockerFile -t andruche/greenplum:6.26.4-slim-arm64 .
+$ docker push andruche/greenplum:6.26.4-slim-arm64
+$ docker buildx build --platform linux/amd64 -f 6/DockerFile -t andruche/greenplum:6.26.4-slim-amd64 .
+$ docker push andruche/greenplum:6.26.4-slim-amd64
 
 $ docker buildx build --platform linux/arm64/v8 -f 7/DockerFile -t andruche/greenplum:7.0.0-slim-arm64 .
 $ docker push andruche/greenplum:7.0.0-slim-arm64
@@ -23,9 +22,9 @@ $ docker push andruche/greenplum:7.0.0-slim-amd64
 
 ## Build manifests
 ```
-$ docker manifest rm andruche/greenplum:6.25.3
-$ docker manifest create andruche/greenplum:6.25.3 --amend andruche/greenplum:6.25.3-slim-arm64 --amend andruche/greenplum:6.25.3-slim-amd64
-$ docker manifest push andruche/greenplum:6.25.3
+$ docker manifest rm andruche/greenplum:6.26.4
+$ docker manifest create andruche/greenplum:6.26.4 --amend andruche/greenplum:6.26.4-slim-arm64 --amend andruche/greenplum:6.26.4-slim-amd64
+$ docker manifest push andruche/greenplum:6.26.4
 
 $ docker manifest rm andruche/greenplum:7.0.0
 $ docker manifest create andruche/greenplum:7.0.0 --amend andruche/greenplum:7.0.0-slim-arm64 --amend andruche/greenplum:7.0.0-slim-amd64
