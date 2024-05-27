@@ -5,7 +5,7 @@ services:
   greenplum-6:
     build:
       context: . 
-      dockerfile: Dockerfile_6
+      dockerfile: DockerFile_6
 
     ports:
       - 5432:5432  
